@@ -1,0 +1,434 @@
+/* =========================
+   Material-inspired tokens
+   ========================= */
+
+:root {
+    /* Spacing scale (8px grid) */
+    --space-1: 4px;   /* internal micro spacing (icons/type can align to 4) */
+    --space-2: 8px;
+    --space-3: 12px;
+    --space-4: 16px;
+    --space-5: 24px;
+    --space-6: 32px;
+    --space-7: 40px;
+    --space-8: 48px;
+
+    /* Shape (MUI default border radius is 4px) */
+    --radius-1: 4px;
+    --radius-2: 8px;
+    --radius-pill: 999px;
+
+    /* Typography (Material-ish) */
+    --font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    --font-size-base: 14px; /* matches MUI theme default conceptually */
+    --line-height: 1.5;
+
+    /* Your palette (keep your current colors) */
+    --color-bg: #11181C;
+    --color-text: #dadada;
+    --color-accent: #F97316;
+    --color-muted: #a5a5a5;
+
+    /* Material-like surfaces (dark mode) */
+    --surface-0: #11181C;
+    --surface-1: #151f25;
+    --surface-2: #18242b;
+
+    /* Dividers */
+    --divider: rgba(255,255,255,0.12);
+
+    /* Elevation (simple but Material-inspired) */
+    --elev-0: none;
+    --elev-1: 0 1px 2px rgba(0,0,0,0.40);
+    --elev-2: 0 2px 6px rgba(0,0,0,0.45);
+    --elev-3: 0 6px 16px rgba(0,0,0,0.55);
+
+    /* Focus ring (keyboard accessibility) */
+    --focus-ring: 2px solid var(--color-accent);
+    --focus-offset: 2px;
+
+    --color-success: #10B981; 
+    --color-primary: #dadada;
+    --color-accent: #F97316;
+    --color-muted: #a5a5a5;
+    --color-background: #11181C;
+    --status-employed: #28a745;
+    --status-employed-bg: #d4edda;
+    --status-looking: #ffc107;
+    --status-looking-bg: #fff3cd;
+    --status-unavailable: #6c757d;
+    --status-unavailable-bg: #e2e3e5;
+
+    --debug-border: 1px solid var(--color-success);
+}
+
+/* =========================
+   Global baseline
+   ========================= */
+
+* { box-sizing: border-box; }
+
+*, *::before, *::after {
+    /* outline: var(--debug-border); */
+}
+
+html { font-size: 16px; } /* keep user-default; we control components with rem */
+
+body {
+  margin-top: 50px;
+  font-family: var(--font-family);
+  font-size: calc(var(--font-size-base) / 16 * 1rem);
+  line-height: var(--line-height);
+  color: var(--color-text);
+  background: var(--color-bg);
+}
+
+/* Links: Material-like (no underline by default, underline on hover optional) */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+a:hover { text-decoration: none; }
+a:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: var(--focus-offset);
+  border-radius: var(--radius-1);
+}
+
+/* Container: Material layouts tend to use consistent padding & max width */
+.container {
+  max-width: 50%;  /* you can keep 50% if you prefer */
+  margin: 0 auto;
+  padding: var(--space-6);
+  position: relative;
+}
+
+
+/* =========================
+   SPACERS (vertical rhythm)
+   ========================= */
+
+.spacer-xs { height: 4px; }
+.spacer-sm { height: 8px; }
+.spacer-md { height: 16px; }
+.spacer-lg { height: 24px; }
+.spacer-xl { height: 32px; }
+.spacer-2xl { height: 48px; }
+
+
+/* ======================================================================
+    RESET / GLOBAL BASE
+   ====================================================================== */
+
+/* Hide scrollbar (cross-browser) */
+body::-webkit-scrollbar {
+    display: none;
+}
+
+/* ======================================================================
+   DIVIDER
+   ====================================================================== */
+
+.divider {
+  width: 100%;
+  height: 1px;
+
+  background-color: var(--divider, rgba(255, 255, 255, 0.12));
+
+  margin: var(--space-1) 0;
+}
+
+/* ======================================================================
+    COLORS
+   ====================================================================== */
+
+.textColor-primary { color: var(--color-primary) }
+.textColor-accent { color: var(--color-accent) }
+.textColor-muted { color: var(--color-muted) }
+
+/* =========================
+   EXPERIENCE ITEM
+   ========================= */
+
+.experience-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; 
+
+  padding: var(--space-4) 0;
+}
+
+.experience-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+
+.experience-text p {
+  margin: 4px 0 0;
+  line-height: 1.5;
+  max-width: 600px; /* optional but recommended */
+}
+
+/* Left side (logo + text) */
+.experience-left {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+}
+
+/* Logo */
+
+.experience-logo {
+  width: 40px;
+  height: 40px;
+  min-width: 40px;   /* 🔑 important */
+  min-height: 40px;
+  flex-shrink: 0;    /* 🔑 prevents resize */
+
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.experience-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    margin-top: 2px;
+}
+
+/* Text */
+.experience-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.experience-role {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.experience-org {
+  font-size: 0.9rem;
+  color: var(--color-muted);
+}
+
+/* Right side (date) */
+.experience-date {
+  font-size: 0.85rem;
+  color: var(--color-muted);
+  white-space: nowrap;
+}
+
+.experience-text h3,
+.experience-text h4,
+.experience-text p {
+  margin: 0;
+}
+
+
+/* ======================================================================
+    EMPLOYMENT STATUS PILL
+   ====================================================================== */
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  padding: 6px 14px;
+  border-radius: 999px;
+
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1;
+
+  white-space: nowrap;
+}
+
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: currentColor;
+}
+
+
+.status--floating {
+  position: absolute;
+  top: var(--space-4);
+  right: var(--space-4);
+}
+
+
+
+
+.status--inline {
+  margin-left: 8px;
+  padding: 4px 10px;
+
+  font-size: 0.75rem;
+  font-weight: 600;
+
+  vertical-align: middle;
+}
+
+
+
+
+.status--active {
+  background-color: rgba(16, 185, 129, 0.15);
+  color: #10B981;
+}
+
+.status--employed {
+  background-color: var(--status-employed-bg);
+  color: var(--status-employed);
+}
+
+.status--unavailable {
+  background-color: var(--status-unavailable-bg);
+  color: var(--status-unavailable);
+}
+
+.status--looking {
+  background-color: var(--status-looking-bg);
+  color: var(--status-looking);
+}
+
+/* ======================================================================
+    LAYOUT & CONTAINERS
+   ====================================================================== */
+
+
+.right {
+  margin-left: auto;    /* ensures it stays on the far right */
+  align-items: flex-start;
+}
+
+.card {
+  background: var(--surface-1);
+  border: 1px solid var(--divider);
+  border-radius: var(--radius-1);
+  box-shadow: var(--elev-1);
+  padding: var(--space-5);
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: 6px 12px;
+  border-radius: var(--radius-pill);
+  background: rgba(249,115,22,0.12);
+  color: var(--color-primary);
+  margin:4px;
+  border: 1px solid rgba(249,115,22,0.25);
+  font-size: 0.8125rem;
+}
+
+/* ======================================================================
+    TEXTS
+   ====================================================================== */
+
+h1, h2, h3, p {
+    margin:5px;
+    padding:0;
+}
+
+/* ======================================================================
+    TECH CHIPS
+   ====================================================================== */
+
+.tech-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3); /* 12px, Material-friendly */
+}
+
+.tech-chip {
+  display: inline-flex;
+  align-items: center;
+  vertical-align: middle;
+  gap: var(--space-2); /* 8px */
+
+  padding: 7px 13px;
+  border-radius: 999px;
+
+  font-size: 0.95rem;
+  font-weight: 500;
+
+  background: var(--surface-1);
+  color: var(--color-text);
+
+  border: 1px dashed var(--divider);
+  box-shadow: var(--elev-0);
+
+  line-height: 1rem;
+}
+
+.tech-chip img {
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+
+.tech-chip.inline {
+  vertical-align: middle;
+}
+
+
+/* ======================================================================
+    FOOTER
+   ====================================================================== */
+
+.footer {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+/* ======================================================================
+    INTER WEIGHTS
+   ====================================================================== */
+
+.inter-thin {
+  font-weight: 100;
+}
+
+.inter-xtralight {
+  font-weight: 200;
+}
+
+.inter-light {
+  font-weight: 300;
+}
+
+.inter-regular {
+  font-weight: 400;
+}
+
+.inter-medium {
+  font-weight: 500;
+}
+
+.inter-semibold {
+  font-weight: 600;
+}
+
+.inter-bold {
+  font-weight: 700;
+}
+
+.inter-xtrabold {
+  font-weight: 800;
+}
+
+.inter-black {
+  font-weight: 900;
+}

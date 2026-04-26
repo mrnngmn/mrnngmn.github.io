@@ -1,0 +1,274 @@
+/* ======================================================================
+    RESET / GLOBAL BASE
+   ====================================================================== */
+
+:root {
+  --color-primary: #F97316;    
+  --color-secondary: #11181C;  
+  --color-accent: #2563EB;     
+
+  --color-bg: #FFFFFF;
+  --color-muted: #a5a5a5;
+  --color-border: #E5E7EB;
+
+  --color-warning: #F59E0B;
+  --color-error: #EF4444;
+  --color-success: #10B981;
+
+  --debug-border: 1px solid var(--color-success);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+
+*, *::before, *::after {
+  outline: var(--debug-border);
+}
+
+
+body {
+  margin-top: 50px;
+  font-family: "Montserrat", sans-serif;
+  line-height: 1.5;
+  color: var(--color-primary);
+  background: var(--color-secondary);
+}
+
+/* Hide scrollbar (cross-browser) */
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* ======================================================================
+    TYPOGRAPHY & TEXT ELEMENTS
+   ====================================================================== */
+
+/* Clean typographic reset */
+.name {
+  margin: 0;
+}
+
+.tagline {
+  margin-top: 0.25rem;
+  color: var(--color-muted);
+}
+
+
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+
+/* ======================================================================
+    EMPLOYMENT STATUS PILL
+   ====================================================================== */
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  padding: 6px 14px;
+  border-radius: 999px;
+
+  font-size: 0.875rem;
+  font-weight: 500;
+  white-space: nowrap;
+  
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: currentColor;
+}
+
+.status--employed {
+  background-color: var(--color-primary);
+  color: var(--color-secondary);
+}
+
+.status--inactive {
+  background-color: var(--color-muted);
+  color: var(--color-secondary);
+}
+
+.status--looking {
+  background-color: var(--color-warning);
+  color: var(--color-secondary);
+}
+
+/* ======================================================================
+    SKILLS PILL
+   ====================================================================== */
+
+.skills-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  padding: 6px 14px;
+  border-radius: 999px;
+  margin:3px;
+
+  font-size: 0.875rem;
+  font-weight: 500;
+  white-space: nowrap;
+  
+  background-color: var(--color-primary);
+  color: var(--color-secondary);
+}
+
+/* ======================================================================
+    LAYOUT & CONTAINERS
+   ====================================================================== */
+
+.container {
+  max-width:50%;
+  padding: 1.5rem;
+  margin: 0 auto;
+  display: grid;
+  gap: 1rem;
+}
+
+.container-col2 {
+    max-width: 90%;
+    padding: 1.5rem;
+    margin: 0 auto;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.header-top {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Left column */
+.header-left {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Name + status alignment context */
+.name-row {
+  display: flex;
+  align-items: center;   /* ✅ centers status to NAME */
+  /* justify-content: space-between; */
+  gap: 1rem;
+}
+
+/* Divider line */
+.header-divider {
+  margin-top: 1.25rem;
+  height: 2px;
+  background-color: #F97316;
+}
+
+.header-row {
+  display: flex;
+  align-items: center; /* ✅ center to the name, not its baseline */
+  gap: 1rem;
+}
+
+.name {
+  margin: 0;
+}
+
+section {
+}
+
+.project {
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 4px;
+}
+
+.project a {
+  margin-right: 1rem;
+}
+
+.chip {
+  display: inline-block;
+  padding: 8px 20px;
+  border-radius: 25px;
+  font-size: 0.75rem;
+  background-color: #f974163a;
+  color:#f97416;
+  margin-top: 8px;
+}
+
+.name-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.name-row h1 {
+  margin: 0;
+}
+
+.card {
+    border: 1px solid #F97316;
+    border-radius: 8px;
+    padding: 1rem;
+    background-color: #1F2933;
+    width:100%;
+}
+
+/* ======================================================================
+    MONTSERRAT WEIGHTS
+   ====================================================================== */
+
+.montserrat-thin {
+  font-weight: 100;
+}
+
+.montserrat-xtralight {
+  font-weight: 200;
+}
+
+.montserrat-light {
+  font-weight: 300;
+}
+
+.montserrat-regular {
+  font-weight: 400;
+}
+
+.montserrat-medium {
+  font-weight: 500;
+}
+
+.montserrat-semibold {
+  font-weight: 600;
+}
+
+.montserrat-bold {
+  font-weight: 700;
+}
+
+.montserrat-xtrabold {
+  font-weight: 800;
+}
+
+.montserrat-black {
+  font-weight: 900;
+}
+
+/* ======================================================================
+    FOOTER
+   ====================================================================== */
+
+.footer {
+  margin-top: 3rem;
+}
